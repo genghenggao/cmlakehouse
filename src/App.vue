@@ -1,8 +1,15 @@
+<!--
+ * @Description: henggao_note
+ * @version: v1.0.0
+ * @Date: 2023-10-08 23:08:55
+ * @LastEditors: henggao
+ * @LastEditTime: 2023-10-09 09:06:48
+-->
 <template>
-  <nav>
+  <!-- <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
-  </nav>
+  </nav> -->
   <router-view/>
 </template>
 
