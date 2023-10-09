@@ -16,3 +16,8 @@ declare module 'jquery' {
   import $ from "jquery"
   export default $ 
 }
+
+declare module '@jiaminghi/data-view' {
+  import dataV from '@jiaminghi/data-view'
+  export default dataV
+}

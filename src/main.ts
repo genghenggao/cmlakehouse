@@ -16,5 +16,6 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 import "bootstrap-icons/font/bootstrap-icons.css"
 import ElementPlus from "element-plus"
 import "element-plus/dist/index.css"
+import dataV from '@jiaminghi/data-view'
 
 createApp(App).use(store).use(router).use(ElementPlus).mount('#app')
