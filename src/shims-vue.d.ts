@@ -3,7 +3,7 @@
  * @version: v1.0.0
  * @Date: 2023-10-08 23:08:55
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-09 09:41:45
+ * @LastEditTime: 2023-10-09 21:14:49
  */
 /* eslint-disable */
 declare module '*.vue' {
@@ -21,3 +21,5 @@ declare module '@jiaminghi/data-view' {
   import dataV from '@jiaminghi/data-view'
   export default dataV
 }
+
+declare const Cesium: any

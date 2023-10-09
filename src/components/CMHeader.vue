@@ -3,7 +3,7 @@
  * @version: v1.0.0
  * @Date: 2023-10-09 09:18:40
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-09 09:27:30
+ * @LastEditTime: 2023-10-09 21:52:06
 -->
 <template>
     <div>
@@ -30,7 +30,7 @@
             <div class="navbar-nav">
               <a class="nav-link" aria-current="page" href="/">首页</a>
               <a class="nav-link" href="/newslist">专项新闻</a>
-              <a class="nav-link" href="/data">数据产品</a>
+              <a class="nav-link" href="/dataplatforms">数据平台</a>
               <a class="nav-link" href="/datacenter">数据中心</a>
               <a class="nav-link" href="#">数据共享</a>
               <a class="nav-link" href="/dataview">大数据分析</a>
