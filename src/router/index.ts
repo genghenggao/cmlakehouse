@@ -3,7 +3,7 @@
  * @version: v1.0.0
  * @Date: 2023-10-08 23:08:55
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-09 16:57:37
+ * @LastEditTime: 2023-10-09 17:18:41
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomePage from '@/components/HomePage.vue'
@@ -24,11 +24,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'datacenter',
     component: () => import(/* webpackChunkName: "about" */ '@/components/datacenter/DataCenter.vue')
   },
-  // {
-  //   path: '/hydrologyplatform',
-  //   name: 'hydrologyplatform',
-  //   component: () => import('@/components/platform/HydrologyPlatform.vue')
-  // },
+  {
+    path: '/hydrologyplatform',
+    name: 'hydrologyplatform',
+    component: () => import('@/components/platform/HydrologyPlatform.vue')
+  },
   {
     path: '/dataview',
     name: 'dataview',

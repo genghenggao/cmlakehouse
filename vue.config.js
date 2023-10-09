@@ -3,7 +3,7 @@
  * @version: v1.0.0
  * @Date: 2023-10-08 23:08:55
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-09 16:44:20
+ * @LastEditTime: 2023-10-09 18:58:52
  */
 const { defineConfig } = require('@vue/cli-service')
 const webpack = require('webpack');

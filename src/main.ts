@@ -3,7 +3,7 @@
  * @version: v1.0.0
  * @Date: 2023-10-08 23:08:55
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-09 09:58:13
+ * @LastEditTime: 2023-10-09 18:40:13
  */
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -18,4 +18,10 @@ import ElementPlus from "element-plus"
 import "element-plus/dist/index.css"
 import dataV from '@jiaminghi/data-view'
 
-createApp(App).use(store).use(router).use(ElementPlus).mount('#app')
+// import "cesium/Source/Widgets/widgets.css";
+// const Cesium = require("cesium/Source/Cesium");
+// Cesium.Ion.defaultAccessToken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxZDE0MWI4OS1jYjYxLTRmMDEtYWI5Yy1hZjBiNDAwZjc2NzEiLCJpZCI6MTgzMDEsImlhdCI6MTYwOTMyNjMxNH0.5H4EA7TyeUBhRmOI6IoRFXjyLtEJAjFZKJORBhGK2uc";
+
+const app = createApp(App)
+// app.provide("$Cesium", Cesium);
+app.use(store).use(router).use(ElementPlus).use(dataV).mount('#app')
