@@ -4,7 +4,7 @@
  * @Author: henggao
  * @Date: 2021-10-04 21:54:24
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-10 10:57:20
+ * @LastEditTime: 2023-10-10 15:52:18
 -->
 <template>
   <el-container class="main-container">
@@ -41,15 +41,13 @@
           </el-menu-item>
           <el-sub-menu v-else-if="menu.children" :index="menu.path">
             <template #title>
-              <!-- <i :class="menu.icon"></i> -->
-              <i :class="menu.meta.icon"></i>
+              <i :class="menu.meta.icon">&nbsp;&nbsp;</i>
               <span :class="[isCollapse ? 'is-collapse' : '']">
                 {{ menu.name }}
               </span>
             </template>
             <el-menu-item v-for="child in menu.children" :key="child" :index="child.path">
-              <!-- <i :class="child.icon"></i> -->
-              <i :class="child.meta.icon"></i>
+              <i :class="child.meta.icon">&nbsp;&nbsp;</i>
               <template #title>
                 {{ child.name }}
               </template>
@@ -66,22 +64,28 @@
     <el-container>
       <!-- 头部 -->
       <el-header>
-        <el-row :gutter="10">
+        <el-row :gutter="5">
           <el-col :xs="2" :sm="1" :md="1" :lg="1" :xl="1" :span="1">
             <div class="header-collapse" @click="onCollapse">
-              <i :class="[isCollapse ? 'el-icon-s-fold' : 'el-icon-s-unfold']" />
+              <i
+                :class="[
+                  isCollapse ? 'bi bi-text-indent-left' : 'bi bi-text-indent-right',
+                ]"
+              />
             </div>
           </el-col>
           <el-col :span="1" :xs="20" :sm="18" :md="18" :lg="18" :xl="18">
             <div class="header-breadcrumb">
               <el-breadcrumb separator="/" v-if="this.$route.matched[0].path != '/home'">
-                <el-breadcrumb-item :to="{ path: '/' }">工作台</el-breadcrumb-item>
+                <el-breadcrumb-item :to="{ path: '/datacenter' }"
+                  >{{ $t("message.Workbench") }}</el-breadcrumb-item
+                >
                 <el-breadcrumb-item v-for="(matched, m) in this.$route.matched" :key="m">
                   {{ matched.name }}
                 </el-breadcrumb-item>
               </el-breadcrumb>
               <el-breadcrumb separator="/" v-else>
-                <el-breadcrumb-item>工作台</el-breadcrumb-item>
+                <el-breadcrumb-item>{{ $t("message.Home") }}</el-breadcrumb-item>
               </el-breadcrumb>
             </div>
           </el-col>
@@ -156,6 +160,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.el-header {
+  padding-left: 0;
+}
 .main-container {
   background: #f5f7f9;
   // width: 100vw;
@@ -191,7 +198,7 @@ export default {
 
     .aside-menu:not(.el-menu--collapse) {
       width: 220px;
-      height:100%;
+      height: 100%;
       .el-menu-item.is-active {
         background-color: #d9393b !important;
       }
