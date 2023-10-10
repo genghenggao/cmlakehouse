@@ -4,7 +4,7 @@
  * @Author: henggao
  * @Date: 2021-10-04 21:54:24
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-10 15:52:18
+ * @LastEditTime: 2023-10-10 22:21:33
 -->
 <template>
   <el-container class="main-container">
@@ -14,8 +14,8 @@
         <div class="aside-logo" @click="onRefresh">
           <el-image class="logo-image" :src="logo" fit="contain" />
           <span :class="[isCollapse ? 'is-collapse' : '']">
-            <span class="logo-name">地学</span>
-            <span>智慧服务平台</span>
+            <span class="logo-name">{{ $t("message.Geoscience") }}</span>
+            <span>{{ $t("message.AIPlatform") }}</span>
           </span>
         </div>
       </el-affix>
@@ -28,6 +28,7 @@
         background-color="#001529"
         text-color="#fff"
         active-text-color="#fff"
+        :style="{ height: menuHeight + 'px' }"
       >
         <div v-for="menu in routers" :key="menu">
           <el-menu-item
@@ -43,13 +44,13 @@
             <template #title>
               <i :class="menu.meta.icon">&nbsp;&nbsp;</i>
               <span :class="[isCollapse ? 'is-collapse' : '']">
-                {{ menu.name }}
+                {{ $t(menu.name) }}
               </span>
             </template>
             <el-menu-item v-for="child in menu.children" :key="child" :index="child.path">
               <i :class="child.meta.icon">&nbsp;&nbsp;</i>
               <template #title>
-                {{ child.name }}
+                {{ $t(child.name) }}
               </template>
             </el-menu-item>
           </el-sub-menu>
@@ -77,11 +78,11 @@
           <el-col :span="1" :xs="20" :sm="18" :md="18" :lg="18" :xl="18">
             <div class="header-breadcrumb">
               <el-breadcrumb separator="/" v-if="this.$route.matched[0].path != '/home'">
-                <el-breadcrumb-item :to="{ path: '/datacenter' }"
-                  >{{ $t("message.Workbench") }}</el-breadcrumb-item
-                >
+                <el-breadcrumb-item :to="{ path: '/datacenter' }">{{
+                  $t("message.Workbench")
+                }}</el-breadcrumb-item>
                 <el-breadcrumb-item v-for="(matched, m) in this.$route.matched" :key="m">
-                  {{ matched.name }}
+                  {{ $t(matched.name) }}
                 </el-breadcrumb-item>
               </el-breadcrumb>
               <el-breadcrumb separator="/" v-else>
@@ -165,9 +166,11 @@ export default {
 }
 .main-container {
   background: #f5f7f9;
-  // width: 100vw;
-  height: 100%;
-  width: 100%;
+  width: 100vw;
+  // height: 100%;
+  // width: 100%;
+  height: 100vh; /* 设置容器的高度为视口高度 */
+  overflow: hidden; /* 隐藏容器溢出的内容，滚动条将出现在 el-menu 中 */
 
   .el-aside {
     height: 100%;
@@ -198,7 +201,8 @@ export default {
 
     .aside-menu:not(.el-menu--collapse) {
       width: 220px;
-      height: 100%;
+      overflow-y: auto; /* 启用垂直滚动条 */
+      max-height: 100%; /* 限制 el-menu 的最大高度为容器高度 */
       .el-menu-item.is-active {
         background-color: #d9393b !important;
       }
@@ -232,7 +236,7 @@ export default {
     }
 
     .header-menu {
-      text-align: right;
+      text-align: center;
     }
   }
 

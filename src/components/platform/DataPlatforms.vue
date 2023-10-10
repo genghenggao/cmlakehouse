@@ -420,7 +420,7 @@ export default defineComponent({
 
     .res_main {
       border-bottom: 1px solid rgba(150, 143, 143, 0.384);
-
+      
       a:link {
         color: black;
         text-decoration: none;
@@ -448,11 +448,12 @@ export default defineComponent({
       }
 
       .content_right {
+        text-align: left;
         .content-label {
           // 字体超出部分隐藏
           overflow: hidden;
           white-space: nowrap; //不换行
-          text-align: left;
+          // text-align: left;/
           // text-overflow: ellipsis; //显示省略符
           // display: block;
           span {

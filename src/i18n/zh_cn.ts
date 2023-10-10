@@ -10,5 +10,17 @@ export default {
       DataAnalysis:"数据分析",
       CoProject:"综合项目",
       About: '关于我们',
+      Workbench:'工作台'
+    },
+    datacenter: {
+      DataCollection: '数据采集',
+      DataManagement: '数据管理',
+      DataAnalysis: '数据分析',
+      DataProcessing: '数据处理',
+      OverlayAnalysis: '叠加分析',
+      OffsetCalculation: '偏移计算',
+      DataInterpretation: '数据解释',
+      SeismicInterpretation: '地震解释',
+      GeoInterpretation: ' 地质解译'
     },
   }
