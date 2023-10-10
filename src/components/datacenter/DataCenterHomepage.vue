@@ -4,7 +4,7 @@
  * @Author: henggao
  * @Date: 2021-10-06 09:48:55
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-09 22:48:44
+ * @LastEditTime: 2023-10-10 08:56:56
 -->
 <template>
     <el-menu
@@ -71,7 +71,7 @@
         imglist: [
           { url: require("@/assets/images/8970adb0170b302d3580b2447ec5389.png") },
           {
-            url: require("../assets/images/d726404a9919aafc008ed129bf15277.jpg"),
+            url: require("@/assets/images/d726404a9919aafc008ed129bf15277.jpg"),
           },
         ],
       });

@@ -4,10 +4,9 @@
  * @Author: henggao
  * @Date: 2021-10-14 10:01:46
  * @LastEditors: henggao
- * @LastEditTime: 2021-10-15 10:53:43
+ * @LastEditTime: 2023-10-10 10:29:07
 -->
 <template>
-  <!-- <Header /> -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-2 sidebar">
@@ -80,11 +79,9 @@
 </template>
 <script lang='ts'>
 import { defineComponent, reactive, toRefs } from "vue";
-import Header from "@/components/Header.vue";
 export default defineComponent({
-  name: "App",
+  name: "DataCenterSideBar",
   components: {
-    Header,
   },
   setup() {
     const state = reactive({

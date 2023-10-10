@@ -4,7 +4,7 @@
  * @Author: henggao
  * @Date: 2021-10-15 15:54:25
  * @LastEditors: henggao
- * @LastEditTime: 2022-08-17 14:17:19
+ * @LastEditTime: 2023-10-10 08:52:40
 -->
 <template>
   <div class="container-fluid shadow-sm p-3 mb-5 bg-body rounded">
@@ -32,8 +32,8 @@
           <span class="btn-text">Start</span>
         </button> -->
       </div>
-      <!-- <div class="col-md-8">123</div> -->
-      <!-- <div class="col-md-4">Test</div> -->
+      <!-- <div class="col-md-8">123</div>
+      <div class="col-md-4">Test</div> -->
     </div>
   </div>
   <div class="main">
@@ -55,7 +55,7 @@
     </el-row>
   </div>
 </template>
-<script lang='ts'>
+<script lang="ts">
 import { computed, defineComponent, onMounted, toRefs, watch } from "vue";
 // import echarts from "echarts";
 import * as echarts from "echarts";
@@ -313,7 +313,7 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .container-fluid {
   background: url("../../assets/images/bigdata-bg.png");
   color: #ffffff;
@@ -521,9 +521,8 @@ export default defineComponent({
     background-repeat: no-repeat;
     background-size: 50% 50%, 50% 50%;
     background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    background-image: linear-gradient(#399953, #399953),
-      linear-gradient(#fbb300, #fbb300), linear-gradient(#d53e33, #d53e33),
-      linear-gradient(#377af5, #377af5);
+    background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300),
+      linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
     animation: rotate 4s linear infinite;
   }
 

@@ -3,7 +3,7 @@
  * @version: v1.0.0
  * @Date: 2023-10-08 23:08:55
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-09 20:58:36
+ * @LastEditTime: 2023-10-10 09:29:14
  */
 const { defineConfig } = require('@vue/cli-service')
 const CopyWebpackPlugin = require("copy-webpack-plugin");
@@ -22,7 +22,13 @@ module.exports = defineConfig({
         "zlib": false,
         "http": false,
         "url": false
-      }
+      },
+      extensions: ['.js', '.vue', '.json'],//请求本地json
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+        '@c': path.resolve(__dirname, './src/components'),
+        '@p': path.resolve(__dirname, './src/pages')
+      } // 别名配置
     },
     plugins: [
       new CopyWebpackPlugin({

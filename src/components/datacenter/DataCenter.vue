@@ -1,12 +1,21 @@
+<!--
+ * @Description: henggao_learning
+ * @version: v1.0.0
+ * @Author: henggao
+ * @Date: 2021-10-04 21:54:24
+ * @LastEditors: henggao
+ * @LastEditTime: 2023-10-10 10:57:20
+-->
 <template>
-  <el-container class="main-container" :style="defaultHeight">
-    <el-aside>
-      <el-affix :z-index="120">
+  <el-container class="main-container">
+    <el-aside :style="defaultHeight" :width="asideWidth">
+      <!-- Logo -->
+      <el-affix :z-index="1200">
         <div class="aside-logo" @click="onRefresh">
           <el-image class="logo-image" :src="logo" fit="contain" />
           <span :class="[isCollapse ? 'is-collapse' : '']">
             <span class="logo-name">地学</span>
-            <span>智慧平台</span>
+            <span>智慧服务平台</span>
           </span>
         </div>
       </el-affix>
@@ -25,7 +34,6 @@
             v-if="menu.children && menu.children.length === 1"
             :index="menu.children[0].path"
           >
-            <!-- <i :class="menu.children[0].icon"></i> -->
             <i :class="menu.children[0].meta.icon"></i>
             <template #title>
               {{ menu.children[0].name }}
@@ -50,7 +58,11 @@
         </div>
       </el-menu>
     </el-aside>
-
+    <div class="toggle" @click="toggleMenu">
+      <el-icon :size="35" color="#ffffff" style="left: 12px; top: 12px">
+        <grid />
+      </el-icon>
+    </div>
     <el-container>
       <!-- 头部 -->
       <el-header>
@@ -86,13 +98,15 @@
   </el-container>
 </template>
 <script>
-import { onBeforeMount, reactive, toRefs } from "vue";
+import { onMounted, reactive, toRefs } from "vue";
 import { useRouter } from "vue-router";
-import DataCenterHead from "@/components/datacenter/DataCenterHead";
+import DataCenterHead from "@/components/datacenter/DataCenterHead.vue";
+import { Grid } from "@element-plus/icons-vue";
 
 export default {
   components: {
     DataCenterHead,
+    Grid,
   },
   setup() {
     const router = useRouter();
@@ -106,27 +120,27 @@ export default {
       routers: [],
     });
 
-    onBeforeMount(() => {
+    onMounted(() => {
       state.routers = router.options.routes;
       state.defaultHeight.height = document.body.clientHeight + "px";
-      console.log(state.routers);
-      console.log(state.defaultHeight.height);
     });
 
     const onCollapse = () => {
       if (state.isCollapse) {
         state.asideWidth = "220px";
         state.isCollapse = false;
-        let navigation = document.querySelector(".el-aside");
-        navigation.classList.toggle("active");
       } else {
         state.isCollapse = true;
         state.asideWidth = "64px";
-        let navigation = document.querySelector(".el-aside");
-        navigation.classList.toggle("active");
       }
     };
-
+    const toggleMenu = () => {
+      console.log("Demo");
+      let navigation = document.querySelector(".el-aside");
+      let toggle = document.querySelector(".toggle");
+      navigation.classList.toggle("active");
+      toggle.classList.toggle("active");
+    };
     const onRefresh = () => {
       router.push({ path: "/" });
     };
@@ -135,7 +149,7 @@ export default {
       ...toRefs(state),
       onCollapse,
       onRefresh,
-      //   toggleMenu,
+      toggleMenu,
     };
   },
 };
@@ -144,17 +158,12 @@ export default {
 <style scoped lang="scss">
 .main-container {
   background: #f5f7f9;
-  //   width: 100vw;
+  // width: 100vw;
   height: 100%;
-  // width: 100%;
+  width: 100%;
 
-  .el-aside.active {
-    // height: 100%;
-    width: 60px;
-  }
   .el-aside {
-    // height: 100%;
-    width: 220px;
+    height: 100%;
     transition: all 0.5s;
     background-color: #001529;
     overflow-y: auto;
@@ -182,7 +191,7 @@ export default {
 
     .aside-menu:not(.el-menu--collapse) {
       width: 220px;
-
+      height:100%;
       .el-menu-item.is-active {
         background-color: #d9393b !important;
       }
@@ -206,6 +215,7 @@ export default {
     overflow: hidden; /*超出隐藏*/
     white-space: nowrap; /* 强制不换行 */
     text-overflow: ellipsis; /*文字隐藏的格式 */
+
     .header-collapse {
       cursor: pointer;
     }
@@ -220,8 +230,7 @@ export default {
   }
 
   .el-main {
-    padding: 0.6em 0.2em;
-    // padding: 0.6em;
+    padding: 0.6em;
     overflow-x: hidden;
     overflow-y: auto;
 
@@ -230,15 +239,34 @@ export default {
     }
   }
 
+  .toggle {
+    display: none;
+  }
+  .toggle.active {
+    background: #ea1d63;
+  }
+
   @media (max-width: 767px) {
     .el-aside {
-      //   left: -60px;
+      left: -60px;
       // display: none;
-      width: 0;
     }
     .el-aside.active {
       left: 0px;
+      width: 100%;
+      width: 0px;
+    }
+
+    .toggle {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
       width: 60px;
+      height: 60px;
+      border-radius: 35%; //圆角
+      background: #001529;
+      cursor: pointer;
     }
   }
 }
