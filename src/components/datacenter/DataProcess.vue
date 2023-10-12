@@ -3,14 +3,17 @@
  * @version: v1.0.0
  * @Date: 2023-10-09 21:55:39
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-10 21:07:14
+ * @LastEditTime: 2023-10-11 15:28:47
 -->
 <template>
   <div class="main">
+    <el-row
+      ><h4>{{ $t("datacenter.DataExplorer") }}</h4></el-row
+    >
     <el-row :gutter="10">
-      <el-col :xs="0" :sm="1" :md="1" :lg="1" :xl="1"
-        ></el-col>
-      <el-col :xs="24" :sm="22" :md="22" :lg="22" :xl="22" style="text-align: left">
+      <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4"> 打卡文件 </el-col>
+      <el-col :xs="18" :sm="18" :md="18" :lg="18" :xl="18" style="text-align: left">
+        <!-- <EditorHome /> -->
         <Codemirror
           v-model:value="code"
           :options="cmOptions"
@@ -19,6 +22,14 @@
           :height="200"
           @change="change"
         />
+      </el-col>
+      <el-col :xs="2" :sm="2" :md="2" :lg="2" :xl="2"></el-col>
+    </el-row>
+    <el-row :gutter="10">
+      <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"
+        ><div class="grid-content ep-bg-purple"
+      /></el-col>
+      <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
         <el-dropdown @command="handleCommand">
           <span class="el-dropdown-link">
             Dropdown List<el-icon class="el-icon--right"><arrow-down /></el-icon>
@@ -32,10 +43,12 @@
               <el-dropdown-item command="e" divided>Action 5</el-dropdown-item>
             </el-dropdown-menu>
           </template>
-        </el-dropdown>
-      </el-col>
-      <el-col :xs="0" :sm="1" :md="1" :lg="1" :xl="1"
-        ></el-col>
+        </el-dropdown></el-col
+      >
+
+      <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"
+        ><div class="grid-content ep-bg-purple-light"
+      /></el-col>
     </el-row>
   </div>
 </template>
@@ -60,7 +73,7 @@ export default defineComponent({
         console.log(i);
         // more statements
       }`);
-    const changeLanague = () => {
+    const handleCommand = () => {
       console.log("qqiehuan");
     };
     return {

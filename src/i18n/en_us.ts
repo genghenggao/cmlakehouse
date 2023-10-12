@@ -3,7 +3,7 @@
  * @version: v1.0.0
  * @Date: 2023-10-10 15:49:14
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-10 17:59:00
+ * @LastEditTime: 2023-10-11 08:33:42
  */
 export default {
   message: {
@@ -28,6 +28,7 @@ export default {
     OffsetCalculation: 'OffsetCalculation',
     DataInterpretation: 'DataInterpretation',
     SeismicInterpretation: 'DataProcessing',
-    GeoInterpretation: ' GeoInterpretation'
-    },
+    GeoInterpretation: ' GeoInterpretation',
+    DataExplorer: 'Data Explorer'
+  },
 }

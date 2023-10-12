@@ -4,7 +4,7 @@
  * @Author: henggao
  * @Date: 2021-10-04 21:54:24
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-10 22:21:33
+ * @LastEditTime: 2023-10-10 23:13:18
 -->
 <template>
   <el-container class="main-container">
@@ -180,6 +180,7 @@ export default {
     overflow-x: hidden;
 
     .aside-logo {
+      text-align: left;
       height: 59px;
       color: white;
       cursor: pointer;

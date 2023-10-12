@@ -21,6 +21,7 @@ export default {
       OffsetCalculation: '偏移计算',
       DataInterpretation: '数据解释',
       SeismicInterpretation: '地震解释',
-      GeoInterpretation: ' 地质解译'
+      GeoInterpretation: ' 地质解译',
+      DataExplorer:'数据资源管理器'
     },
   }

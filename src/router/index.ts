@@ -3,7 +3,7 @@
  * @version: v1.0.0
  * @Date: 2023-10-09 16:37:47
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-10 22:24:02
+ * @LastEditTime: 2023-10-11 15:23:14
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomePage from '@/components/HomePage.vue'
@@ -41,6 +41,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/components/platform/HydrologyPlatform.vue')
   },
   {
+    path: '/editorhome',
+    name: 'editorhome',
+    component: () => import('@/components/editor/EditorHome.vue')
+  },
+  {
     path: '/datacenter',
     name: "datacenter.DataCollection",
     component: DataCenter,
@@ -51,7 +56,7 @@ const routes: Array<RouteRecordRaw> = [
         path: "/datacenter",
         name: "datacenter.DataManagement",
         meta: { title: "数据管理", icon: "bi bi-box", requireAuth: true, roles: ['true', 'false'] },
-        component: () => import('@/components/datacenter/DataCenterHomepage.vue')
+        component: () => import('@/components/editor/EditorHome.vue')
       },
       {
         path: "/datacenter1",
