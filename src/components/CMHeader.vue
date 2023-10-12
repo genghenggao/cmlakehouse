@@ -35,7 +35,7 @@
             <a class="nav-link" href="#">{{ $t("message.DataShare") }}</a>
             <a class="nav-link" href="/dataview">{{ $t("message.DataAnalysis") }}</a>
             <a class="nav-link" href="#">{{ $t("message.CoProject") }}</a>
-            <a class="nav-link" href="#">{{ $t("message.About") }}</a>
+            <a class="nav-link" href="/about">{{ $t("message.About") }}</a>
             <a class="nav-link" href="#">
               <el-dropdown @command="handleCommand">
                 <span class="el-dropdown-link">

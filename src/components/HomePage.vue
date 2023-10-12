@@ -4,7 +4,7 @@
  * @Author: henggao
  * @Date: 2021-10-06 10:57:38
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-10 19:21:33
+ * @LastEditTime: 2023-10-12 17:10:40
 -->
 <template>
   <!-- 导航 -->
@@ -253,7 +253,7 @@
       </div>
     </div>
   </section>
-  <!--  -->
+  <!--laster  -->
   <section id="second-part">
     <div class="container">
       <div class="row g-5">
@@ -310,9 +310,10 @@
       </div>
     </div>
   </section>
-
   <!-- footer -->
-  <CMFooter />
+  <div id="third-part">
+    <CMFooter />
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent, onMounted, reactive, toRefs } from "vue";
@@ -959,5 +960,8 @@ export default defineComponent({
       color: #021236;
     }
   }
+}
+#third-part {
+  margin-top: 60px;
 }
 </style>

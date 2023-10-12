@@ -3,7 +3,7 @@
  * @version: v1.0.0
  * @Date: 2023-10-09 16:37:47
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-11 15:23:14
+ * @LastEditTime: 2023-10-12 16:54:47
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomePage from '@/components/HomePage.vue'
@@ -111,7 +111,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'dataview',
     component: () => import('@/components/screendisplay/DataView.vue')
   },
-
+  {
+    path: '/about',
+    name: 'aboutus',
+    component: () => import('@/components/aboutus/AboutUs.vue')
+  },
 ]
 
 const router = createRouter({
