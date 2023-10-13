@@ -1,7 +1,7 @@
 export default {
-    message: {
-      Geoscience:'地学',
-      AIPlatform:'智慧平台',
+    cmheader: {
+      CoalMine:'煤矿',
+      AIPlatform:'智能湖仓',
       Home: '首页',
       News: '新闻动态',
       DataPlatform: '数据平台',
@@ -12,7 +12,7 @@ export default {
       About: '关于我们',
       Workbench:'工作台'
     },
-    datacenter: {
+    computeservice: {
       DataCollection: '数据采集',
       DataManagement: '数据管理',
       DataAnalysis: '数据分析',

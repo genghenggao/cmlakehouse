@@ -3,11 +3,11 @@
  * @version: v1.0.0
  * @Date: 2023-10-10 15:49:14
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-11 08:33:42
+ * @LastEditTime: 2023-10-13 09:21:36
  */
 export default {
-  message: {
-    Geoscience: 'Geo',
+  cmheader: {
+    CoalMine: 'CMS',
     AIPlatform: "Platform",
     Home: 'Home',
     News: 'News',
@@ -19,7 +19,7 @@ export default {
     About: 'About',
     Workbench: 'Workbench'
   },
-  datacenter: {
+  computeservice: {
     DataManagement: 'DataManagement',
     DataCollection: 'DataCollection',
     DataAnalysis: 'DataAnalysis',

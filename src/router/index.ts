@@ -3,11 +3,11 @@
  * @version: v1.0.0
  * @Date: 2023-10-09 16:37:47
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-12 19:33:07
+ * @LastEditTime: 2023-10-13 09:12:37
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomePage from '@/components/HomePage.vue'
-import ComputeServices from "@/components/datacenter/ComputeServices.vue"
+import ComputeServices from "@/components/computeservice/ComputeServices.vue"
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -47,62 +47,62 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/computeservices',
-    name: "datacenter.DataCollection",
+    name: "computeservice.DataCollection",
     component: ComputeServices,
     meta: { title: "工作台", icon: "bi bi-blockquote-right", requireAuth: true, roles: ['true', 'false'] },
     redirect: '/computeservices',
     children: [
       {
         path: "/computeservices",
-        name: "datacenter.DataManagement",
+        name: "computeservice.DataManagement",
         meta: { title: "计算服务", icon: "bi bi-box", requireAuth: true, roles: ['true', 'false'] },
         component: () => import('@/components/editor/EditorHome.vue')
       },
       {
         path: "/computeservices2",
-        name: "datacenter.DataAnalysis",
+        name: "computeservice.DataAnalysis",
         meta: { title: "数据分析", icon: "bi bi-box", requireAuth: true, roles: ['true', 'false'] },
-        component: () => import('@/components/datacenter/DataProcess.vue')
+        component: () => import('@/components/computeservice/DataProcess.vue')
       }
     ]
   },
   {
     path: '/dataprocess',
-    name: "datacenter.DataProcessing",
+    name: "computeservice.DataProcessing",
     component: ComputeServices,
     meta: { title: "数据处理", icon: "bi bi-blockquote-right", requireAuth: true, roles: ['true', 'false'] },
     children: [
       {
         path: "/overlay-analysis",
-        name: "datacenter.OverlayAnalysis",
+        name: "computeservice.OverlayAnalysis",
         meta: { title: "叠加分析", icon: "bi bi-box", requireAuth: true, roles: ['true', 'false'] },
-        component: () => import('@/components/datacenter/CMDataManage.vue')
+        component: () => import('@/components/computeservice/ComputeServiceHome.vue')
       },
       {
         path: "/offset-calculation",
-        name: "datacenter.OffsetCalculation",
+        name: "computeservice.OffsetCalculation",
         meta: { title: "偏移计算", icon: "bi bi-box", requireAuth: true, roles: ['true', 'false'] },
-        component: () => import('@/components/datacenter/DataOverView1.vue')
+        component: () => import('@/components/computeservice/DataOverView.vue')
       },
     ]
   },
   {
     path: '/datainterpretation',
-    name: "datacenter.DataInterpretation",
+    name: "computeservice.DataInterpretation",
     component: ComputeServices,
     meta: { title: "数据解释", icon: "bi bi-blockquote-right", requireAuth: true, roles: ['true', 'false'] },
     children: [
       {
         path: "/seismic-interpretation",
-        name: "datacenter.SeismicInterpretation",
+        name: "computeservice.SeismicInterpretation",
         meta: { title: "地震解释", icon: "bi bi-box", requireAuth: true, roles: ['true', 'false'] },
-        component: () => import('@/components/datacenter/CMDataManage.vue')
+        component: () => import('@/components/computeservice/ComputeServiceHome.vue')
       },
       {
         path: "/geological-interpretation",
-        name: "datacenter.GeoInterpretation",
+        name: "computeservice.GeoInterpretation",
         meta: { title: "地质解译", icon: "bi bi-box", requireAuth: true, roles: ['true', 'false'] },
-        component: () => import('@/components/datacenter/DataOverView1.vue')
+        component: () => import('@/components/computeservice/DataOverView.vue')
       },
     ]
   },
@@ -115,7 +115,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/about',
     name: 'aboutus',
     component: () => import('@/components/aboutus/AboutUs.vue')
-  },
+  }
 ]
 
 const router = createRouter({

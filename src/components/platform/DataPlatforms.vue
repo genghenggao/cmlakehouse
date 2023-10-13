@@ -24,8 +24,8 @@
     <div class="container">
       <a class="navbar-brand" href="/"
         ><img src="@/assets/logo.png" alt="" width="30" height="30" />
-        <span class="logo-name">{{ $t("message.Geoscience") }}</span
-        >{{ $t("message.AIPlatform") }}</a
+        <span class="logo-name">{{ $t("cmheader.CoalMine") }}</span
+        >{{ $t("cmheader.AIPlatform") }}</a
       >
       <button
         class="navbar-toggler"
@@ -40,14 +40,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" aria-current="page" href="/">{{ $t("message.Home") }}</a>
-          <a class="nav-link" href="/newslist">{{ $t("message.News") }}</a>
-          <a class="nav-link" href="/dataplatforms">{{ $t("message.DataPlatform") }}</a>
-          <a class="nav-link" href="/computeservices">{{ $t("message.ComputeServices") }}</a>
-          <a class="nav-link" href="#">{{ $t("message.DataShare") }}</a>
-          <a class="nav-link" href="/datamonitor">{{ $t("message.DataMonitor") }}</a>
-          <a class="nav-link" href="#">{{ $t("message.CoProject") }}</a>
-          <a class="nav-link" href="/about">{{ $t("message.About") }}</a>
+          <a class="nav-link" aria-current="page" href="/">{{ $t("cmheader.Home") }}</a>
+          <a class="nav-link" href="/newslist">{{ $t("cmheader.News") }}</a>
+          <a class="nav-link" href="/dataplatforms">{{ $t("cmheader.DataPlatform") }}</a>
+          <a class="nav-link" href="/computeservices">{{ $t("cmheader.ComputeServices") }}</a>
+          <a class="nav-link" href="#">{{ $t("cmheader.DataShare") }}</a>
+          <a class="nav-link" href="/datamonitor">{{ $t("cmheader.DataMonitor") }}</a>
+          <a class="nav-link" href="#">{{ $t("cmheader.CoProject") }}</a>
+          <a class="nav-link" href="/about">{{ $t("cmheader.About") }}</a>
         </div>
       </div>
     </div>

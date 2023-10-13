@@ -4,7 +4,7 @@
  * @Author: henggao
  * @Date: 2021-10-04 21:54:24
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-13 08:51:52
+ * @LastEditTime: 2023-10-13 09:00:19
 -->
 <template>
   <el-container class="main-container">
@@ -105,7 +105,7 @@
 <script>
 import { onMounted, reactive, toRefs } from "vue";
 import { useRouter } from "vue-router";
-import ComputeServiceHead from "@/components/datacenter/ComputeServiceHead.vue";
+import ComputeServiceHead from "@/components/computeservice/ComputeServiceHead.vue";
 import { Grid } from "@element-plus/icons-vue";
 
 export default {
