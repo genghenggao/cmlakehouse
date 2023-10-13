@@ -24,7 +24,8 @@
     <div class="container">
       <a class="navbar-brand" href="/"
         ><img src="@/assets/logo.png" alt="" width="30" height="30" />
-        <span class="logo-name">地学</span>智慧平台</a
+        <span class="logo-name">{{ $t("message.Geoscience") }}</span
+        >{{ $t("message.AIPlatform") }}</a
       >
       <button
         class="navbar-toggler"
@@ -39,14 +40,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" aria-current="page" href="/">首页</a>
-          <a class="nav-link" href="/newslist">专项新闻</a>
-          <a class="nav-link" href="/data">数据产品</a>
-          <a class="nav-link" href="/datacenter">数据中心</a>
-          <a class="nav-link" href="#">数据共享</a>
-          <a class="nav-link" href="/dataview">大数据分析</a>
-          <a class="nav-link" href="#">项目综合</a>
-          <a class="nav-link" href="#">关于我们</a>
+          <a class="nav-link" aria-current="page" href="/">{{ $t("message.Home") }}</a>
+          <a class="nav-link" href="/newslist">{{ $t("message.News") }}</a>
+          <a class="nav-link" href="/dataplatforms">{{ $t("message.DataPlatform") }}</a>
+          <a class="nav-link" href="/computeservices">{{ $t("message.ComputeServices") }}</a>
+          <a class="nav-link" href="#">{{ $t("message.DataShare") }}</a>
+          <a class="nav-link" href="/datamonitor">{{ $t("message.DataMonitor") }}</a>
+          <a class="nav-link" href="#">{{ $t("message.CoProject") }}</a>
+          <a class="nav-link" href="/about">{{ $t("message.About") }}</a>
         </div>
       </div>
     </div>
@@ -62,15 +63,15 @@
           </div>
           <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
             <button
-              class="btn btn-outline-secondary btn-sm"
               type="button"
+              class="btn btn-outline-secondary btn-sm"
               @click="emptyAll"
             >
               清空全部 <i class="bi bi-trash"></i>
             </button>
             <button
-              class="btn btn-outline-secondary btn-sm"
               type="button"
+              class="btn btn-outline-secondary btn-sm"
               data-bs-toggle="collapse"
               data-bs-target="#panelsStayOpen-collapseOne"
               aria-expanded="true"
@@ -420,7 +421,7 @@ export default defineComponent({
 
     .res_main {
       border-bottom: 1px solid rgba(150, 143, 143, 0.384);
-      
+
       a:link {
         color: black;
         text-decoration: none;

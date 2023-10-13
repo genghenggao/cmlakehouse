@@ -5,9 +5,9 @@ export default {
       Home: '首页',
       News: '新闻动态',
       DataPlatform: '数据平台',
-      DataCenter: '数据中心',
+      ComputeServices: '计算服务',
       DataShare: '数据共享',
-      DataAnalysis:"数据分析",
+      DataMonitor:"数据监控",
       CoProject:"综合项目",
       About: '关于我们',
       Workbench:'工作台'

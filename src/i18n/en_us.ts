@@ -12,9 +12,9 @@ export default {
     Home: 'Home',
     News: 'News',
     DataPlatform: 'DataPlatform',
-    DataCenter: 'DataCenter',
+    ComputeServices: 'ComputeServices',
     DataShare: 'DataShare',
-    DataAnalysis: "DataAnalysis",
+    DataMonitor: "DataMonitor",
     CoProject: "CoProject",
     About: 'About',
     Workbench: 'Workbench'

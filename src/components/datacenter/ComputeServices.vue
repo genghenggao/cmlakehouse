@@ -4,7 +4,7 @@
  * @Author: henggao
  * @Date: 2021-10-04 21:54:24
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-10 23:13:18
+ * @LastEditTime: 2023-10-13 08:51:52
 -->
 <template>
   <el-container class="main-container">
@@ -78,7 +78,7 @@
           <el-col :span="1" :xs="20" :sm="18" :md="18" :lg="18" :xl="18">
             <div class="header-breadcrumb">
               <el-breadcrumb separator="/" v-if="this.$route.matched[0].path != '/home'">
-                <el-breadcrumb-item :to="{ path: '/datacenter' }">{{
+                <el-breadcrumb-item :to="{ path: '/computeservices' }">{{
                   $t("message.Workbench")
                 }}</el-breadcrumb-item>
                 <el-breadcrumb-item v-for="(matched, m) in this.$route.matched" :key="m">
@@ -91,7 +91,7 @@
             </div>
           </el-col>
           <el-col class="header-menu" :span="1" :xs="0" :sm="5" :md="5" :lg="5" :xl="5">
-            <DataCenterHead />
+            <ComputeServiceHead />
           </el-col>
         </el-row>
       </el-header>
@@ -105,12 +105,12 @@
 <script>
 import { onMounted, reactive, toRefs } from "vue";
 import { useRouter } from "vue-router";
-import DataCenterHead from "@/components/datacenter/DataCenterHead.vue";
+import ComputeServiceHead from "@/components/datacenter/ComputeServiceHead.vue";
 import { Grid } from "@element-plus/icons-vue";
 
 export default {
   components: {
-    DataCenterHead,
+    ComputeServiceHead,
     Grid,
   },
   setup() {

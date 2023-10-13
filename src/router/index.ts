@@ -3,11 +3,11 @@
  * @version: v1.0.0
  * @Date: 2023-10-09 16:37:47
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-12 16:54:47
+ * @LastEditTime: 2023-10-12 19:33:07
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomePage from '@/components/HomePage.vue'
-import DataCenter from "@/components/datacenter/DataCenter.vue"
+import ComputeServices from "@/components/datacenter/ComputeServices.vue"
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -46,20 +46,20 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/components/editor/EditorHome.vue')
   },
   {
-    path: '/datacenter',
+    path: '/computeservices',
     name: "datacenter.DataCollection",
-    component: DataCenter,
+    component: ComputeServices,
     meta: { title: "工作台", icon: "bi bi-blockquote-right", requireAuth: true, roles: ['true', 'false'] },
-    // redirect: '/datacenter',
+    redirect: '/computeservices',
     children: [
       {
-        path: "/datacenter",
+        path: "/computeservices",
         name: "datacenter.DataManagement",
-        meta: { title: "数据管理", icon: "bi bi-box", requireAuth: true, roles: ['true', 'false'] },
+        meta: { title: "计算服务", icon: "bi bi-box", requireAuth: true, roles: ['true', 'false'] },
         component: () => import('@/components/editor/EditorHome.vue')
       },
       {
-        path: "/datacenter1",
+        path: "/computeservices2",
         name: "datacenter.DataAnalysis",
         meta: { title: "数据分析", icon: "bi bi-box", requireAuth: true, roles: ['true', 'false'] },
         component: () => import('@/components/datacenter/DataProcess.vue')
@@ -69,7 +69,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/dataprocess',
     name: "datacenter.DataProcessing",
-    component: DataCenter,
+    component: ComputeServices,
     meta: { title: "数据处理", icon: "bi bi-blockquote-right", requireAuth: true, roles: ['true', 'false'] },
     children: [
       {
@@ -89,7 +89,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/datainterpretation',
     name: "datacenter.DataInterpretation",
-    component: DataCenter,
+    component: ComputeServices,
     meta: { title: "数据解释", icon: "bi bi-blockquote-right", requireAuth: true, roles: ['true', 'false'] },
     children: [
       {
@@ -107,9 +107,9 @@ const routes: Array<RouteRecordRaw> = [
     ]
   },
   {
-    path: '/dataview',
-    name: 'dataview',
-    component: () => import('@/components/screendisplay/DataView.vue')
+    path: '/datamonitor',
+    name: 'datamonitor',
+    component: () => import('@/components/screendisplay/DataMonitor.vue')
   },
   {
     path: '/about',

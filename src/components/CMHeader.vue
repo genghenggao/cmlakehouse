@@ -3,7 +3,7 @@
  * @version: v1.0.0
  * @Date: 2023-10-09 09:18:40
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-10 17:52:10
+ * @LastEditTime: 2023-10-12 19:32:14
 -->
 <template>
   <div>
@@ -31,9 +31,9 @@
             <a class="nav-link" aria-current="page" href="/">{{ $t("message.Home") }}</a>
             <a class="nav-link" href="/newslist">{{ $t("message.News") }}</a>
             <a class="nav-link" href="/dataplatforms">{{ $t("message.DataPlatform") }}</a>
-            <a class="nav-link" href="/datacenter">{{ $t("message.DataCenter") }}</a>
+            <a class="nav-link" href="/computeservices">{{ $t("message.ComputeServices") }}</a>
             <a class="nav-link" href="#">{{ $t("message.DataShare") }}</a>
-            <a class="nav-link" href="/dataview">{{ $t("message.DataAnalysis") }}</a>
+            <a class="nav-link" href="/datamonitor">{{ $t("message.DataMonitor") }}</a>
             <a class="nav-link" href="#">{{ $t("message.CoProject") }}</a>
             <a class="nav-link" href="/about">{{ $t("message.About") }}</a>
             <a class="nav-link" href="#">

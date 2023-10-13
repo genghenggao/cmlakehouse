@@ -17,16 +17,14 @@
       </div>
       <div class="col-md-6 navbarcontent">
         <a class="navbar-brand" href="/"
-          ><img src="@/assets/logo.png" alt="" width="20" height="20" />
-          <span class="logo-name">地学</span>智慧平台</a
+          ><img src="@/assets/logo.png" alt="" width="30" height="25" />
+          <span class="logo-name">{{ $t("message.Geoscience") }}</span
+          >{{ $t("message.AIPlatform") }}</a
         >
       </div>
       <div class="col-md-6 showTime" align="right">
         <!-- 加载动画 -->
-        <div
-          class="spinner-border spinner-border-sm text-primary"
-          role="status"
-        >
+        <div class="spinner-border spinner-border-sm text-primary" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
