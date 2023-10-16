@@ -8,8 +8,7 @@
       <div class="col-md-6" align="center">
         <dv-decoration-5 />
         <div class="col-md-6 center-title">
-          <!-- <a href="/mongeostore" style="color: #ffffff">武甲图纸管理系统数据中心</a> -->
-          <p style="color: #ffffff">地学智慧数据服务中心</p>
+          <p style="color: #ffffff">煤矿地学大数据智能湖仓中心</p>
         </div>
       </div>
       <div class="col-md-3 hidden-xs" align="left">
@@ -18,8 +17,8 @@
       <div class="col-md-6 navbarcontent">
         <a class="navbar-brand" href="/"
           ><img src="@/assets/logo.png" alt="" width="30" height="25" />
-          <span class="logo-name">{{ $t("message.Geoscience") }}</span
-          >{{ $t("message.AIPlatform") }}</a
+          <span class="logo-name">{{ $t("cmheader.CoalMine") }}</span
+          >{{ $t("cmheader.AIPlatform") }}</a
         >
       </div>
       <div class="col-md-6 showTime" align="right">
