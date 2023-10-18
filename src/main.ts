@@ -3,7 +3,7 @@
  * @version: v1.0.0
  * @Date: 2023-10-08 23:08:55
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-10 15:50:20
+ * @LastEditTime: 2023-10-18 11:17:46
  */
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -29,6 +29,6 @@ import i18n from './i18n'
 const app = createApp(App)
 app.provide("$Cesium", Cesium);
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-    app.component(key, component)
-  }
+  app.component(key, component)
+}
 app.use(store).use(router).use(ElementPlus).use(dataV).use(i18n).mount('#app')

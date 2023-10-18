@@ -3,11 +3,13 @@
  * @version: v1.0.0
  * @Date: 2023-10-09 16:37:47
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-13 09:12:37
+ * @LastEditTime: 2023-10-18 18:51:11
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomePage from '@/components/HomePage.vue'
 import ComputeServices from "@/components/computeservice/ComputeServices.vue"
+
+import { start, close } from "@/utils/nprogress";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -115,6 +117,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/about',
     name: 'aboutus',
     component: () => import('@/components/aboutus/AboutUs.vue')
+  },
+  {
+    path: '/about',
+    name: 'aboutus',
+    component: () => import('@/components/aboutus/AboutUs.vue')
   }
 ]
 
@@ -122,5 +129,14 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+router.beforeEach((to: any, from: any, next: () => void) => {
+  start();
+  next();
+});
+
+router.afterEach(() => {
+  close();
+});
 
 export default router
