@@ -4,7 +4,7 @@
  * @Author: henggao
  * @Date: 2021-10-04 21:54:24
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-13 09:00:19
+ * @LastEditTime: 2023-10-18 19:10:06
 -->
 <template>
   <el-container class="main-container">
@@ -12,10 +12,10 @@
       <!-- Logo -->
       <el-affix :z-index="1200">
         <div class="aside-logo" @click="onRefresh">
-          <el-image class="logo-image" :src="logo" fit="contain" />
+          <el-image class="logo-image" :src="logo" fit="contain"></el-image>
           <span :class="[isCollapse ? 'is-collapse' : '']">
-            <span class="logo-name">{{ $t("message.Geoscience") }}</span>
-            <span>{{ $t("message.AIPlatform") }}</span>
+            <span class="logo-name">{{ $t("cmheader.CoalMine") }}</span>
+            <span>{{ $t("cmheader.AIPlatform") }}</span>
           </span>
         </div>
       </el-affix>
@@ -79,14 +79,14 @@
             <div class="header-breadcrumb">
               <el-breadcrumb separator="/" v-if="this.$route.matched[0].path != '/home'">
                 <el-breadcrumb-item :to="{ path: '/computeservices' }">{{
-                  $t("message.Workbench")
+                  $t("cmheader.Workbench")
                 }}</el-breadcrumb-item>
                 <el-breadcrumb-item v-for="(matched, m) in this.$route.matched" :key="m">
                   {{ $t(matched.name) }}
                 </el-breadcrumb-item>
               </el-breadcrumb>
               <el-breadcrumb separator="/" v-else>
-                <el-breadcrumb-item>{{ $t("message.Home") }}</el-breadcrumb-item>
+                <el-breadcrumb-item>{{ $t("cmheader.Home") }}</el-breadcrumb-item>
               </el-breadcrumb>
             </div>
           </el-col>
