@@ -3,7 +3,7 @@
  * @version: v1.0.0
  * @Date: 2023-10-09 16:37:47
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-18 18:51:11
+ * @LastEditTime: 2023-10-19 11:06:02
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomePage from '@/components/HomePage.vue'
@@ -119,9 +119,9 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/components/aboutus/AboutUs.vue')
   },
   {
-    path: '/about',
-    name: 'aboutus',
-    component: () => import('@/components/aboutus/AboutUs.vue')
+    path: '/downloadtest',
+    name: 'downloadtest',
+    component: () => import('@/others/DownLoadTest.vue')
   }
 ]
 

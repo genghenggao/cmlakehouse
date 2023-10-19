@@ -3,7 +3,7 @@
  * @version: v1.0.0
  * @Date: 2023-10-08 23:08:55
  * @LastEditors: henggao
- * @LastEditTime: 2023-10-10 09:29:14
+ * @LastEditTime: 2023-10-19 11:13:47
  */
 const { defineConfig } = require('@vue/cli-service')
 const CopyWebpackPlugin = require("copy-webpack-plugin");
@@ -73,4 +73,21 @@ module.exports = defineConfig({
     }]);
     config.resolve.symlinks(true) //热更新
   },
+
+  devServer: {
+    host: '0.0.0.0', // 默认是localhost
+    port: 8080, // 前端项目编译后使用的端口号，跟webpack配置的port同理
+    https: false,
+    proxy: {
+      '/api': {
+        target: "http://192.168.92.159:8000/api",   // 实际跨域请求的API地址
+        secure: false,   // https请求则使用true
+        changeOrigin: true,  // 跨域
+        pathRewrite: {
+          '^/api': '/',
+        }
+      }
+    }
+  }
+
 })
