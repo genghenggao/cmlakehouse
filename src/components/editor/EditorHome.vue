@@ -3,12 +3,13 @@
     <div id="nametest">
       <h4 style="text-align: left">
         <i class="bi bi-bar-chart"></i>
-        {{ $t("datacenter.DataExplorer") }}
+        {{ $t("computeservice.DataExplorer") }}
       </h4>
     </div>
     <splitpanes class="default-theme" @resize="paneData.paneSize = $event[0].size">
       <pane :size="paneData.paneLeftSize">
-        <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick" />
+        <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick">
+        </el-tree>
       </pane>
       <pane :size="paneData.paneCenterSize">
         <splitpanes horizontal>
@@ -58,11 +59,157 @@ onMounted(() => {
   console.log(state.defaultHeight.height);
 });
 const code = ref(`
-      var i = 0;
-      for (; i < 9; i++) {
-        console.log(i);
-        // more statements
-      }`);
+const initDynamic = () => {
+      var ROOT_PATH =
+        "https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples";
+      type EChartsOption = echarts.EChartsOption;
+
+      // 1. 实例化对象
+      var chartDom = document.querySelector(".dynamic .chart") as HTMLElement;
+      var myChart = echarts.init(chartDom, "dark");
+      var option: EChartsOption;
+
+      const updateFrequency = 2000;
+      const dimension = 0;
+
+      const countryColors: Record<string, string> = {
+        Australia: "#00008b",
+        Canada: "#f00",
+        China: "#ffde00",
+        Cuba: "#002a8f",
+        Finland: "#003580",
+        France: "#ed2939",
+        Germany: "#000",
+        Iceland: "#003897",
+        India: "#f93",
+        Japan: "#bc002d",
+        "North Korea": "#024fa2",
+        "South Korea": "#000",
+        "New Zealand": "#00247d",
+        Norway: "#ef2b2d",
+        Poland: "#dc143c",
+        Russia: "#d52b1e",
+        Turkey: "#e30a17",
+        "United Kingdom": "#00247d",
+        "United States": "#b22234",
+      };
+
+      $.when(
+        $.getJSON("https://cdn.jsdelivr.net/npm/emoji-flags@1.3.0/data.json"),
+        $.getJSON(ROOT_PATH + "/data/asset/data/life-expectancy-table.json")
+      ).done(function (res0: any, res1: any) {
+        interface Flag {
+          name: string;
+          emoji: string;
+        }
+        const flags: Flag[] = res0[0];
+        const data = res1[0];
+        const years: string[] = [];
+        for (let i = 0; i < data.length; ++i) {
+          if (years.length === 0 || years[years.length - 1] !== data[i][4]) {
+            years.push(data[i][4]);
+          }
+        }
+
+        function getFlag(countryName: string) {
+          if (!countryName) {
+            return "";
+          }
+          return (
+            flags.find(function (item) {
+              return item.name === countryName;
+            }) || {}
+          ).emoji;
+        }
+        let startIndex = 10;
+        let startYear = years[startIndex];
+
+        option = {
+          backgroundColor: "",
+          grid: {
+            top: 10,
+            bottom: 30,
+            left: 150,
+            right: 80,
+          },
+          xAxis: {
+            max: "dataMax",
+            axisLabel: {
+              formatter: function (n: number) {
+                return Math.round(n) + "";
+              },
+            },
+          },
+          dataset: {
+            source: data.slice(1).filter(function (d: string[]) {
+              return d[4] === startYear;
+            }),
+          },
+          yAxis: {
+            type: "category",
+            inverse: true,
+            max: 10,
+            axisLabel: {
+              show: true,
+              fontSize: 14,
+              formatter: function (value: any) {
+                return value + "{flag|" + getFlag(value) + "}";
+              },
+              rich: {
+                flag: {
+                  fontSize: 25,
+                  padding: 5,
+                },
+              },
+            },
+            animationDuration: 300,
+            animationDurationUpdate: 300,
+          },
+          series: [
+            {
+              realtimeSort: true,
+              seriesLayoutBy: "column",
+              type: "bar",
+              itemStyle: {
+                color: function (param) {
+                  return countryColors[(param.value as number[])[3]] || "#5470c6";
+                },
+              },
+              encode: {
+                x: dimension,
+                y: 3,
+              },
+              label: {
+                show: true,
+                precision: 1,
+                position: "right",
+                valueAnimation: true,
+                fontFamily: "monospace",
+              },
+            },
+          ],
+          // Disable init animation.
+          animationDuration: 0,
+          animationDurationUpdate: updateFrequency,
+          animationEasing: "linear",
+          animationEasingUpdate: "linear",
+          graphic: {
+            elements: [
+              {
+                type: "text",
+                right: 160,
+                bottom: 60,
+                style: {
+                  text: startYear,
+                  font: "bolder 80px monospace",
+                  fill: "rgba(100, 100, 100, 0.25)",
+                },
+                z: 100,
+              },
+            ],
+          },
+        };
+      `);
 
 const handleNodeClick = (data: Tree) => {
   console.log(data);
@@ -70,20 +217,53 @@ const handleNodeClick = (data: Tree) => {
 
 const data: Tree[] = [
   {
-    label: "Level one 1",
+    label: "地震勘探数据处理算法",
     children: [
       {
-        label: "Level two 1-1",
-        children: [
-          {
-            label: "Level three 1-1-1",
-          },
-        ],
+        label: "数据预处理.py",
+      },
+      {
+        label: "属性提取.py",
+      },
+      {
+        label: "缓冲区的分析.py",
+      },
+      {
+        label: "叠合运算.py",
+      },
+      {
+        label: "速度分析.py",
+      },
+      {
+        label: "叠加.py",
       },
     ],
   },
   {
-    label: "Level one 2",
+    label: "地震勘探数据处理算法",
+    children: [
+      {
+        label: "数据预处理.py",
+      },
+      {
+        label: "属性提取.py",
+      },
+      {
+        label: "缓冲区的分析.py",
+      },
+      {
+        label: "叠合运算.py",
+      },
+      {
+        label: "速度分析.py",
+      },
+      {
+        label: "叠加.py",
+      },
+    ],
+  },
+  {
+    label: "地质数据处理算法",
     children: [
       {
         label: "Level two 2-1",
@@ -94,7 +274,7 @@ const data: Tree[] = [
         ],
       },
       {
-        label: "Level two 2-2",
+        label: "监测数据处理算法",
         children: [
           {
             label: "Level three 2-2-1",

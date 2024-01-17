@@ -1,7 +1,18 @@
+<!--
+ * @Description: henggao_note
+ * @version: v1.0.0
+ * @Date: 2023-10-18 10:23:41
+ * @LastEditors: henggao
+ * @LastEditTime: 2023-10-19 19:40:15
+-->
 <template>
   <div>
-    <h1>SEGY File Downloader</h1>
-    <button @click="downloadSEGY">Download SEGY</button>
+    <button @click="downloadData">下载数据</button>
+    <ul>
+      <li v-for="item in chunkData" :key="item._id">
+        {{ item.n }}
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -27,29 +38,20 @@ const fetchChunkData = async () => {
 };
 
 // 下载SEGY文件
-const downloadSEGY = () => {
-  const segyData = generateSEGY(chunkData.value);
-  downloadFile(segyData, "demo1018.segy");
-};
-
-// 生成SEGY文件
-const generateSEGY = (data) => {
-  // 实现生成SEGY文件的逻辑，根据你的数据和SEGY格式
-  // 返回生成的SEGY二进制数据
-  // 这里你需要编写生成SEGY文件的代码
-};
-
-// 下载文件
-const downloadFile = (data, fileName) => {
-  const blob = new Blob([data], { type: "application/octet-stream" });
+// 下载数据
+const downloadData = () => {
+  // 创建一个 Blob 对象，将二进制数据转换为文件
+  const data = chunkData.value.map((item) => item.data);
+  const blob = new Blob(data, { type: "application/octet-stream" });
+  console.log(blob);
+  
   const url = window.URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = fileName;
+  a.download = "demo1018.segy";
   a.click();
   window.URL.revokeObjectURL(url);
 };
-
 // 页面加载时获取数据
 onMounted(() => {
   fetchChunkData();

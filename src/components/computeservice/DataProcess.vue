@@ -8,7 +8,7 @@
 <template>
   <div class="main">
     <el-row
-      ><h4>{{ $t("datacenter.DataExplorer") }}</h4></el-row
+      ><h4>{{ $t("computeservice.DataExplorer") }}</h4></el-row
     >
     <el-row :gutter="10">
       <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4"> 打卡文件 </el-col>
